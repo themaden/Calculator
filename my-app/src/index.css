@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+CU:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes buttonHover {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: translateY(-6px);
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes buttonClick {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: translateY(2px);
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+  background: #ffffff;
+  width: 26rem;
+  padding: 2rem;
+  margin-top: 4rem;
+  border-radius: 1.5rem;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.screen {
+  height: 5rem;
+  margin-bottom: 2rem;
+  background: #ececec;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1.5rem;
+  font-size: 2.5rem;
+  color: #333;
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buttonBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.button {
+  background: #f0f0f0;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  animation: buttonHover 0.3s ease forwards;
+}
+
+.button:active {
+  animation: buttonClick 0.1s ease forwards;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.button:active::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.equals {
+  background: #4caf50;
+  color: #fff;
+  grid-column: 3 / 5;
+}
+
+.opt {
+  background: #ff9800;
+  color: #fff;
+}
+
+.equals:hover {
+  background: #43a047; /* Darker green for equals button */
+}
+
+.opt:hover {
+  background: #fb8c00; /* Darker orange for opt button */
+}
+
+.equals:active {
+  background: #388e3c; /* Even darker green for equals button */
+}
+
+.opt:active {
+  background: #f57c00; /* Even darker orange for opt button */
+}
